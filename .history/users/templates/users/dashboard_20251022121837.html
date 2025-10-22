@@ -1,0 +1,22 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+    <h2>Welcome, {{ profile.get_user_type_display }} {{ profile.user.first_name }}!</h2>
+    <p>This is your personal dashboard.</p>
+
+    <h3>Your Registered Details:</h3>
+
+    {% if profile.profile_picture %}
+        <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="profile-img">
+    {% endif %}
+
+    <ul>
+        <li><strong>Full Name:</strong> {{ profile.user.first_name }} {{ profile.user.last_name }}</li>
+        <li><strong>Username:</strong> {{ profile.user.username }}</li>
+        <li><strong>Email:</strong> {{ profile.user.email }}</li>
+        <li><strong>Address:</strong> {{ profile.address_line1 }}</li>
+        <li><strong>City:</strong> {{ profile.city }}</li>
+        <li><strong>State:</strong> {{ profile.state }}</li>
+        <li><strong>Pincode:</strong> {{ profile.pincode }}</li>
+    </ul>
+{% endblock %}
